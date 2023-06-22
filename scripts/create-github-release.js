@@ -9,6 +9,7 @@
  * You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
+       ==========================================
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -72,7 +73,7 @@ async function getCommitMessageUsingTagName(tagName) {
   }
   const commitSha = tagData.data.object.sha;
 
-  // Get the commit message using the commit SHA
+  /* Get the commit message using the commit SHA*/
   const commitData = await octokit.git.getCommit({
     owner: GH_OWNER,
     repo: GH_REPO,
@@ -85,11 +86,11 @@ async function getCommitMessageUsingTagName(tagName) {
       'Something went wrong when getting the commit message using commit SHA',
     );
   }
-
+  
   return commitData.data.message;
 }
 
-// There is a PR number in our expected commit message. Get the description of that PR.
+/* There is a PR number in our expected commit message. Get the description of that PR.*/
 async function getReleaseDescriptionFromCommitMessage(commitMessage) {
   // It should exactly match the pattern of changeset commit message, or else will abort.
   const expectedMessage = RegExp(EXPECTED_COMMIT_MESSAGE);
