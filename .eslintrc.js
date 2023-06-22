@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-var path = require('path');
+let path = require('path');
 
 module.exports = {
   root: true,
